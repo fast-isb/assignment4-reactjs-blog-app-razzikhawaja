@@ -7,7 +7,7 @@ const CreatePost = () => {
   const handleCreatePost = async () => {
     try {
       // Make an API request to create a new blog post
-      const response = await axios.post('http://localhost:3000/api/posts', {
+      const response = await axios.post('http://localhost:3000/posts', {
         content: postContent,
       });
 

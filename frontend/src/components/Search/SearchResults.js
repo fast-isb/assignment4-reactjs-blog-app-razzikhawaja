@@ -7,7 +7,7 @@ const SearchResults = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get('your-api-endpoint/search', {
+      const response = await axios.get('http://localhost:3000/search', {
         params: { keywords: searchQuery },
       });
 

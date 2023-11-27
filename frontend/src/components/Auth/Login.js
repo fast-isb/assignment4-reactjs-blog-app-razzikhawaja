@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ const Login = () => {
 
     try {
       // Make an API request to your backend for user login
-      const response = await axios.post('http://localhost:3000/api/login', formData);
+      const response = await axios.post('http://localhost:3000/login', formData);
 
       console.log('Login Successful', response.data);
     } catch (error) {

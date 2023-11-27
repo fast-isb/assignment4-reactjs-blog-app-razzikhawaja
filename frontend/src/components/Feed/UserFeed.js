@@ -7,7 +7,7 @@ const UserFeed = () => {
   useEffect(() => {
     const fetchUserFeed = async () => {
       try {
-        const response = await axios.get('your-api-endpoint/feed');
+        const response = await axios.get('http://localhost:3000/feed');
         setFeed(response.data);
       } catch (error) {
         console.error('Error fetching user feed', error.response.data);

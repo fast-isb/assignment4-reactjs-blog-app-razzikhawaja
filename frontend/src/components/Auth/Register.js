@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const Register = () => {
 
     try {
       // Make an API request to your backend for user registration
-      const response = await axios.post('http://localhost:3000/api/register', formData);
+      const response = await axios.post('http://localhost:3000/register', formData);
 
       console.log('Registration Successful', response.data);
     } catch (error) {
