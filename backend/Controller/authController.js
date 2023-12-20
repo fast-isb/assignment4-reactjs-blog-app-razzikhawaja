@@ -1,10 +1,8 @@
-
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt'); // For password hashing
 const jwt = require('jsonwebtoken'); // For creating JWTs
 const { check, validationResult } = require('express-validator');
-const authMiddleware = require('../middleware/auth');
 
 // Import your user model
 const User = require('../Models/UserModel');
@@ -108,7 +106,7 @@ router.post('/login', [
 });
 
 // Route for updating user profile
-router.put('/profile', authMiddleware, [
+router.put('/profile', [
   check('username', 'Username is required').notEmpty(),
   check('email', 'Please include a valid email').isEmail(),
 ], async (req, res) => {
@@ -143,7 +141,7 @@ router.put('/profile', authMiddleware, [
 });
 
 // Route for getting user profile
-router.get('/profile', authMiddleware, async (req, res) => {
+router.get('/profile', async (req, res) => {
   try {
     // Find the user by ID and exclude the password field from the response
     const user = await User.findById(req.user.id).select('-password');
@@ -158,6 +156,5 @@ router.get('/profile', authMiddleware, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 
 module.exports = router;

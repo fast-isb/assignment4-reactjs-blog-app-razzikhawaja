@@ -2,10 +2,10 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const authMiddleware = require('../middleware/auth');
+const authMiddleware = require('../middleware/authMiddleware');
 
 // Import your blog post model
-const BlogPost = require('../models/BlogPost');
+const BlogPost = require('../Models/BlogPostModel');
 
 // Route for creating a new blog post
 router.post('/posts', authMiddleware, [

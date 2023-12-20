@@ -3,8 +3,8 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 
 // Import your blog post model
-const BlogPost = require('../models/BlogPost');
-const User = require('../models/User');
+const BlogPost = require('../Models/BlogPostModel');
+const User = require('../Models/UserModel');
 
 // Route for searching blog posts based on keywords, categories, and authors
 router.get('/search', async (req, res) => {

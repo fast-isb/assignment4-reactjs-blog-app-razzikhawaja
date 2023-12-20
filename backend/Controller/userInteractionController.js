@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const authMiddleware = require('../middleware/auth');
+const authMiddleware = require('../middleware/authMiddleware');
 
-// Import your follower, like, and notification models
-const Follower = require('../models/Follower');
-const Like = require('../models/Like');
-const Notification = require('../models/Notification');
+const Follower = require('../Models/FollowerModel');
+const Like = require('../Models/LikeModel');
+const Notification = require('../Models/NotificationModel');
 
 // Route for a user to follow another user
 router.post('/follow/:userId', authMiddleware, async (req, res) => {
